@@ -1,9 +1,10 @@
+import { App } from "../src";
 import { CAR } from "../src/constants/car";
 import { ERROR_MESSAGES } from "../src/constants/messages";
 import { car } from "../src/validator/car";
 
 describe("자동차 이름 유효성 테스트", () => {
-  test(`자동차 이름은 ${CAR.NAME_MAX_LENGTH}자 이하만 가능하다.`, () => {
+  test(`자동차 이름은 ${CAR.NAME_MAX_LENGTH}자 이하만 입력 가능하다.`, () => {
     const carInput = ["a".repeat(CAR.NAME_MAX_LENGTH + 1)];
 
     expect(() => car.nameValidator(carInput)).toThrow(
@@ -11,7 +12,7 @@ describe("자동차 이름 유효성 테스트", () => {
     );
   });
 
-  test(`자동차 이름은 ${CAR.NAME_MIN_LENGTH}자 이상만 가능하다.`, () => {
+  test(`자동차 이름은 ${CAR.NAME_MIN_LENGTH}자 이상만 입력 가능하다.`, () => {
     const carInput = [
       CAR.NAME_MIN_LENGTH - 1 <= 0 ? "" : "a".repeat(CAR.NAME_MIN_LENGTH - 1),
     ];
